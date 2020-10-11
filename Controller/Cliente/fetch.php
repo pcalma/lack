@@ -44,7 +44,12 @@ foreach($result as $row)
 	$sub_array[] = $row["tel_cliente"];
 
 	
-	$sub_array[] = '<button type="button" name="ver" cod_cliente="'.$row["cod_cliente"].'" class="btn btn-info btn-xs ver">Ver</button>';
+	$sub_array[] = '<button 
+	id="add_button2" data-toggle="modal" data-target="#userModal2" 
+	type="button" name="ver" cod_cliente="'.$row["cod_cliente"].'" class="btn btn-info btn-xs ver">Ver</button>';
+
+
+
 	$sub_array[] = '<button type="button" name="update" cod_cliente="'.$row["cod_cliente"].'" class="btn btn-warning btn-xs update">Update</button>';
 	$sub_array[] = '<button type="button" name="delete" cod_cliente="'.$row["cod_cliente"].'" class="btn btn-danger btn-xs delete">Delete</button>';
 	$data[] = $sub_array;

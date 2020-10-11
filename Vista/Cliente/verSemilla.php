@@ -1,6 +1,9 @@
 <?php 
 require_once('../../Modelo/class.conexion.php');
 require_once('../../Modelo/class.semillas.php');
+/*
+require_once('../../Controller/Semilla/cargar.php');
+*/
  ?>
 
 <?php include 'Vista_p/partials/headTable.php';?>
@@ -91,7 +94,7 @@ estado
   <br>
    <div class="form-group">
 
-    <label for="nombre">nombre</label>
+    <label for="">nombre</label>
     <input class="form-control mx-sm-3" id="nombre2" name="nombre2" readonly>
     
   </div>
@@ -112,7 +115,7 @@ estado
     <br>
    <div class="form-group">
 
-    <label for="nombre_proveedor">nombre_proveedor</label>
+    <label for="">nombre_proveedor</label>
     <input type="text" id="nombre_proveedor2" class="form-control mx-sm-3"  name="nombre_proveedor2" readonly>
     
   </div>
@@ -145,7 +148,8 @@ estado
 
 <div id="userModal" class="modal fade bd-example-modal-lg">
   <div class="modal-dialog modal-lg">
-    <form method="post" id="user_form" enctype="multipart/form-data" class="form-inline">
+    <form method="post" id="user_form" enctype="multipart/form-data" class="form-inline" >
+      <!-----action="../Controlador/Cliente/cargar.php"------->
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">Semilla</h4>
@@ -153,33 +157,68 @@ estado
           
         </div>
         <div class="modal-body">
+<!----
+    <?php 
+   // dropdownSemillas();
+   // echo "<br>";
+     ?>
 
- <div class="form-group">
+        <div class="col-sm-5">        
+          <label>Rol: </label>
+    <select name="nombre" required id="nombre" class="form-control">
+      <option value=""> --Selecciona-- </option>
+      <option value="nombre"></option>
 
-    <label for="">id_especieS</label>
-    <input id="id_especieS" class="form-control mx-sm-3" name="id_especieS"         > 
     
+    </select>
+                                </div>
+<div id="selectLista" ></div>
+-------->
+   <div class="form-group">
+
+    <label for="">nombre</label>
+      <select class="form-control" required name="nombre" id="nombre">
+      <option value="">--Selecciona--</option>
+      <option value="1">blueberry</option>
+      <option value="2">11 rosas</option>
+      <option value="3">otro</option>
+    
+    </select>
+
+
+
+<!---
+    <input id="nombre" class="form-control mx-sm-3" name="nombre" >
+   -->
   </div>
+
   <br>
    <div class="form-group">
 
     <label for="">observacion</label>
-        <textarea type="date" id="observacion" class="form-control mx-sm-3" name="observacion" > </textarea>
+        <textarea type="textarea" id="observacion" class="form-control mx-sm-3" name="observacion" > </textarea>
  
   </div>
   <br>
    <div class="form-group">
 
     <label for="">fecha_registro</label>
-    <input id="fecha_registro" class="form-control mx-sm-3" name="fecha_registro" >
+    <input id="fecha_registro" class="form-control mx-sm-3" name="fecha_registro" type="date" >
    
     
   </div>
   <br>
    <div class="form-group">
 
-    <label for="">cod_proveedor</label>
-    <input type="text" id="cod_proveedor" class="form-control mx-sm-3"  name="cod_proveedor" >
+    <label for="">nombre_proveedor</label>
+      <select class="form-control" required name="nombre_proveedor" id="nombre_proveedor">
+      <option value="nombre_proveedor"></option>
+      <option value="1">semi</option>
+      <option value="2">agro</option>
+      <option value="3">otro</option>
+    
+    </select>
+
     
   </div>
     <br>
@@ -218,6 +257,7 @@ estado
 
 $(document).ready(function(){
 
+
 $('#add_button').click(function(){
 $('#user_form')[0].reset();
 $('.modal-title').text("Agregar Semillas");
@@ -230,7 +270,7 @@ $('#operation').val("Add");
 
 $('#add_button2').click(function(){
 $('#userform2')[0].reset();
-$('.modal-title').text("Ver Usuarios");
+$('.modal-title').text("Ver Semillas");
 
 });
 
@@ -257,7 +297,7 @@ $('.modal-title').text("Ver Usuarios");
   $(document).on('click', '.ver', function(){
     var cod_semilla = $(this).attr("cod_semilla");
     $.ajax({
-      url:"../../Controller/Semilla/fetch_single.php",
+      url:"../../Controller/Semilla/fetch_dato.php",
       method:"POST",
       data:{cod_semilla:cod_semilla},
       dataType:"json",
@@ -266,13 +306,13 @@ $('.modal-title').text("Ver Usuarios");
 
         $('#Modal2').modal('show');
         $('#cod_semilla2').val(data.cod_semilla);
+        $('#nombre2').val(data.nombre);
         $('#observacion2').val(data.observacion);
         $('#fecha_registro2').val(data.fecha_registro);
-        $('#nombre2').val(data.nombre);
         $('#nombre_proveedor2').val(data.nombre_proveedor);
         $('#estado2').val(data.estado);
 
-        $('.modal-title').text("Ver User");
+        $('.modal-title').text("Ver semilla");
         $('#cod_semilla2').val(cod_semilla);
 
   
@@ -284,13 +324,13 @@ $('.modal-title').text("Ver Usuarios");
 
   $(document).on('submit', '#user_form', function(event){
     event.preventDefault();
-    var id_especieS = $('#id_especieS').val();
+    var nombre = $('#nombre').val();
     var observacion = $('#observacion').val();
     var fecha_registro = $('#fecha_registro').val();
-    var cod_proveedor = $('#cod_proveedor').val();
+    var nombre_proveedor = $('#nombre_proveedor').val();
     var estado = $('#estado').val();
    
-    if(observacion != '' && fecha_registro != ''&& cod_proveedor != ''&& estado != '')
+    if(observacion != '' && fecha_registro != ''&& nombre_proveedor != ''&& estado != '')
     {
   
       $.ajax({
@@ -333,13 +373,14 @@ $('.modal-title').text("Ver Usuarios");
       {
 
         $('#userModal').modal('show');
-        $('#id_especieS').val(data.nombre);
         $('#observacion').val(data.observacion);
         $('#fecha_registro').val(data.fecha_registro);
-        $('#cod_proveedor').val(data.nombre_proveedor);
+        $('#nombre').val(data.nombre);
+        $('#nombre_proveedor').val(data.nombre_proveedor);
         $('#estado').val(data.estado);
 
-        $('.modal-title').text("Edit User");
+
+        $('.modal-title').text("Edit semilla");
         $('#cod_semilla').val(cod_semilla);
 
         $('#action').val("Edit");
@@ -373,3 +414,4 @@ $('.modal-title').text("Ver Usuarios");
 
   }); 
 </script>
+

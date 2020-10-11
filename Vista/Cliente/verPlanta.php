@@ -46,11 +46,13 @@ id_especieP
 
 estado
 observacion
-         ----->   
+         ----->
+
+
               <th width="5%">id_planta</th>
-              <th width="25%">cod_semilla</th>
+              <th width="25%">nombre_planta</th>
               <th width="20%">fecha_registro</th>
-              <th width="10%">id_especieP</th>
+              <th width="10%">especie planta</th>
 
               <th width="20%">Ver</th>      
               <th width="10%">Edit</th>
@@ -65,11 +67,179 @@ observacion
             </div>
 
  <?php include 'Vista_p/partials/footerTable.php';?>
+ <!------------------>
+<div id="userModal" class="modal fade bd-example-modal-lg">
+  <div class="modal-dialog modal-lg">
+
+
+    <form method="post" id="user_form" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"> Planta</h4>
+          <button type="button" class="close" data-dismiss="modal">X</button>
+          
+        </div>
+        <div class="modal-body">
 
 
 
 
+        <div class="row">
 
+
+                      <div class="col-sm-3">
+            <label>nombre semilla: </label>
+        <select class="form-control"  name="cod_semilla" id="cod_semilla">
+      <option value=""></option>
+      <option value="1">11 rosas</option>
+      <option value="2">blue berry</option>
+    
+    </select>
+                            <br />
+          </div> 
+      <div class="col-sm-5">
+      <label>nombre_planta:</label>
+       <input type="text" name="nombre_planta" id="nombre_planta" class="form-control" />
+     <br />
+            </div>
+
+    <div class="col-sm-3">
+            <label>especie de la planta : </label>
+        <select class="form-control"  name="id_especieP" id="id_especieP">
+      <option value=""></option>
+      <option value="1">indica</option>
+      <option value="2">sativa</option>
+    
+    </select>
+                            <br />
+          </div>
+        </div>
+
+
+          <div class="row">
+            <div class="col-sm-5">
+                  <label>fecha_registro:</label>
+                  <input type="date" name="fecha_registro" id="fecha_registro" class="form-control" />
+                  <br />
+            </div>
+
+            <div class="col-sm-5">
+                  <label>observacion:</label>
+                  <textarea type="text" name="observacion" id="observacion" class="form-control" > </textarea>
+                  <br />
+            </div>
+
+
+   <div class="col-sm-5">                  
+          <label>estado: </label>
+        <select class="form-control"  name="estado" id="estado">
+      <option value=""></option>
+      <option value="1">activo</option>
+      <option value="2">inactivo </option>
+      <option value="3">iniciando</option>
+    
+    </select>           <br />
+</div>
+            
+        </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" name="id_planta" id="id_planta" />
+          <input type="hidden" name="operation" id="operation" />
+          <input type="submit" name="action" id="action" class="btn btn-success" value="Add" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<!------------------>
+<div id="userModal2" class="modal fade bd-example-modal-lg">
+  <div class="modal-dialog modal-lg">
+
+
+    <form method="post" id="user_form2" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"> Planta</h4>
+          <button type="button" class="close" data-dismiss="modal">X</button>
+          
+        </div>
+        <div class="modal-body">
+
+
+
+
+        <div class="row">
+
+
+
+           <div class="col-sm-4">
+                  <label>id_planta:</label>
+                  <input type="text" name="id_planta2" id="id_planta2" class="form-control" readonly />
+                   <br/>
+            </div>
+                      <div class="col-sm-3">
+                  <label>observacion: </label>
+                  <textarea type="text" name="observacion2" id="observacion2" class="form-control" readonly></textarea>
+                            
+          </div> 
+                <div class="col-sm-5">
+      <label>especie de la planta:</label>
+       <input type="text" name="id_especieP2" id="id_especieP2" class="form-control" readonly/>
+     <br />
+            </div>
+
+
+        </div>
+
+
+          <div class="row">
+            <div class="col-sm-5">
+                  <label>fecha_registro:</label>
+                  <input type="date" name="fecha_registro2" id="fecha_registro2" class="form-control" readonly/>
+                  <br />
+            </div>
+
+
+      <div class="col-sm-5">
+      <label>nombre_planta:</label>
+       <input type="text" name="nombre_planta2" id="nombre_planta2" class="form-control"readonly />
+     <br />
+            </div>
+   <div class="col-sm-5">                  
+          <label>estado: </label>
+          <input type="text" name="estado2" id="estado2" class="form-control" readonly/>
+            <br />
+</div>
+      <div class="col-sm-5">
+      <label>nombre semilla:</label>
+       <input type="text" name="cod_semilla2" id="cod_semilla2" class="form-control" readonly/>
+     <br />
+            </div>
+            
+        </div>
+
+
+
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+<!-------------------------------------------------------------------------------->
 
 
  <script type="text/javascript" language="javascript" >
@@ -82,13 +252,22 @@ $(document).ready(function(){
 $('#add_button').click(function(){
 
 $('#user_form')[0].reset();
-$('.modal-title').text("Agregar Usuarios");
+$('.modal-title').text("Agregar plantas");
 $('#action').val("Add");
 $('#operation').val("Add");
 
+
+
     });
 
-  
+
+$('#add_button2').click(function(){
+$('#user_form2')[0].reset();
+$('.modal-title').text("Ver plantas");
+
+});
+
+
   var dataTable = $('#myTable').DataTable({
     "processing":true,
     "serverSide":true,
@@ -103,6 +282,132 @@ $('#operation').val("Add");
     "order": [[ 1, 'asc' ]] 
 
 });
+
+  $(document).on('click', '.ver', function(){
+    var id_planta = $(this).attr("id_planta");
+    $.ajax({
+      url:"../../Controller/Planta/fetch_single.php",
+      method:"POST",
+      data:{id_planta:id_planta},
+      dataType:"json",
+      success:function(data)
+      {
+
+        $('#userModal2').modal('show');
+        $('#id_planta2').val(data.id_planta);
+        $('#observacion2').val(data.observacion);
+        $('#fecha_registro2').val(data.fecha_registro);
+        $('#nombre_planta2').val(data.nombre_planta);
+        $('#estado2').val(data.estado);
+
+        $('#cod_semilla2').val(data.nombre_semilla);
+        $('#id_especieP2').val(data.nombreP);
+
+
+        
+
+
+        $('.modal-title').text("Ver Plantas");
+        $('#id_planta2').val(id_planta);
+
+  
+      }
+    })
+  });
+
+
+  $(document).on('submit', '#user_form', function(event){
+    event.preventDefault();
+
+    var cod_semilla = $('#cod_semilla').val();
+    var nombre_planta = $('#nombre_planta').val();
+    var fecha_registro = $('#fecha_registro').val();
+    var id_especieP = $('#id_especieP').val();
+    var estado = $('#estado').val();
+
+   
+    if(cod_semilla != '' && fecha_registro != '')
+    {
+  
+      $.ajax({
+        url:"../../Controller/Planta/insert.php",
+        method:'POST',
+        data:new FormData(this),
+        contentType:false,
+        processData:false,
+        success:function(data)
+        {
+          alert(data);
+          $('#user_form')[0].reset();
+
+          $('#userModal').modal('hide');
+          dataTable.ajax.reload();
+
+
+        }
+
+      });
+//document.location = "index.php";(REDIRECCIONAR)
+    }
+
+    else
+    {
+      alert("todos los campos son requeridos ");
+    } 
+  });
+
+    $(document).on('click', '.update', function(){
+    var id_planta = $(this).attr("id_planta");
+    $.ajax({
+      url:"../../Controller/Planta/fetch_single.php",
+      method:"POST",
+      data:{id_planta:id_planta},
+      dataType:"json",
+      success:function(data)
+      {
+
+        $('#userModal').modal('show');
+        $('#cod_semilla').val(data.cod_semilla);
+        $('#fecha_registro').val(data.fecha_registro);
+        $('#observacion').val(data.observacion);
+        $('#estado').val(data.estado);
+        $('#nombre_planta').val(data.nombre_planta);
+        $('#id_especieP').val(data.nombreP);
+      
+
+
+        $('.modal-title').text("Edit semilla");
+        $('#id_planta').val(id_planta);
+
+        $('#action').val("Edit");
+        $('#operation').val("Edit");
+
+  
+      }
+    })
+  });
+  $(document).on('click', '.delete', function(){
+    var id_planta = $(this).attr("id_planta");
+    if(confirm("estas seguro de eliminar?"))
+    {
+      $.ajax({
+        url:"../../Controller/Planta/delete.php",
+        method:"POST",
+        data:{id_planta:id_planta},
+        success:function(data)
+        {
+          alert(data);
+          dataTable.ajax.reload();
+        }
+      });
+    }
+    else
+    {
+      return false; 
+    }
+  });
+
+
 
 
   }); 
