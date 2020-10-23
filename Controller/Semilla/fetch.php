@@ -40,9 +40,9 @@ foreach($result as $row)
 	$sub_array = array();
 
 	$sub_array[] = $row["cod_semilla"];
-	$sub_array[] = $row["nombre"];
-	$sub_array[] = $row["observacion"];
-	$sub_array[] = $row["fecha_registro"];
+	$sub_array[] = $row["nombre_semilla"];
+	$sub_array[] = $row["observacionS"];
+	$sub_array[] = $row["fecha_registroS"];
 
 	
 	$sub_array[] = '<button id="add_button2" data-toggle="modal" data-target="#Modal2" type="button" name="ver" cod_semilla="'.$row["cod_semilla"].'" class="btn btn-info   btn-xs ver">Ver</button>';

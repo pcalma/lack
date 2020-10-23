@@ -40,13 +40,11 @@ require_once('../../Modelo/class.proveedor.php');
             <tr>
           
               <th width="5%">cod_proveedor</th>
-              <th width="25%">direccion</th>
+<!---              <th width="25%">direccion</th>
               <th width="20%">nombre_proveedor</th>
               <th width="10%">tel_proveedor</th>
               
-              <th width="20%">Ver</th>      
-              <th width="10%">Edit</th>
-              <th width="13%">Delete</th>
+-->
             </tr>
           </thead>
         </table>
@@ -59,6 +57,7 @@ require_once('../../Modelo/class.proveedor.php');
 
 
 
+<!-------------------------------------------------------------->
 <script type="text/javascript" language="javascript" >
 
 
@@ -74,12 +73,13 @@ $('#operation').val("Add");
 
     });
 
-  
+
+
   var dataTable = $('#myTable').DataTable({
     "processing":true,
     "serverSide":true,
     "ajax":{
-      url:"../../Controller/Proveedor/fetch.php",
+      url:"../../Controller/Detalle/fetch.php",
       type:"POST"
     },
     "columnDefs": [ { 
@@ -91,7 +91,12 @@ $('#operation').val("Add");
 });
 
 
-  }); 
+
+
+
+  });
+
+
 
 
 </script>

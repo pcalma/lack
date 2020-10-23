@@ -52,7 +52,7 @@ observacion
               <th width="5%">id_planta</th>
               <th width="25%">nombre_planta</th>
               <th width="20%">fecha_registro</th>
-              <th width="10%">especie planta</th>
+              <th width="10%">observacion</th>
 
               <th width="20%">Ver</th>      
               <th width="10%">Edit</th>
@@ -86,60 +86,72 @@ observacion
 
         <div class="row">
 
-
-                      <div class="col-sm-3">
-            <label>nombre semilla: </label>
-        <select class="form-control"  name="cod_semilla" id="cod_semilla">
-      <option value=""></option>
-      <option value="1">11 rosas</option>
-      <option value="2">blue berry</option>
-    
-    </select>
-                            <br />
-          </div> 
       <div class="col-sm-5">
       <label>nombre_planta:</label>
        <input type="text" name="nombre_planta" id="nombre_planta" class="form-control" />
      <br />
             </div>
 
-    <div class="col-sm-3">
-            <label>especie de la planta : </label>
-        <select class="form-control"  name="id_especieP" id="id_especieP">
+                      <div class="col-sm-3">
+            <label>cod_semilla: </label>
+        <select class="form-control"  name="cod_semilla" id="cod_semilla">
       <option value=""></option>
-      <option value="1">indica</option>
-      <option value="2">sativa</option>
+      <option value="2">chcolopez</option>
+      <option value="3">Bluberry</option>
+      <option value="9">Mango kush</option>
+      <option value="10">Chaman</option>
     
     </select>
                             <br />
-          </div>
-        </div>
+          </div> 
 
 
-          <div class="row">
-            <div class="col-sm-5">
-                  <label>fecha_registro:</label>
-                  <input type="date" name="fecha_registro" id="fecha_registro" class="form-control" />
-                  <br />
+      <div class="col-sm-5">
+      <label>fecha_registro:</label>
+       <input type="date" name="fecha_registro" id="fecha_registro" class="form-control" />
+     <br />
+            </div>
+                      <div class="col-sm-3">
+            <label> id_especie: </label>
+        <select class="form-control"  name="id_especieP" id="id_especieP">
+      <option value=""></option>
+      <option value="1">Indica</option>
+      <option value="2">Sativa</option>
+    
+    </select>
+                            <br />
+          </div> 
+      <div class="col-sm-5">
+      <label>observacion:</label>
+       <textarea type="text" name="observacion" id="observacion" class="form-control"></textarea>
+     <br />
             </div>
 
-            <div class="col-sm-5">
-                  <label>observacion:</label>
-                  <textarea type="text" name="observacion" id="observacion" class="form-control" > </textarea>
-                  <br />
-            </div>
 
 
-   <div class="col-sm-5">                  
-          <label>estado: </label>
+                      <div class="col-sm-3">
+            <label> estado: </label>
         <select class="form-control"  name="estado" id="estado">
       <option value=""></option>
-      <option value="1">activo</option>
-      <option value="2">inactivo </option>
-      <option value="3">iniciando</option>
+      <option value="1"><?php  $POST[$estado]  ?></option>
+      <option value="2">Activo</option>
     
-    </select>           <br />
-</div>
+    </select>
+                            <br />
+          </div> 
+
+
+
+      <div class="col-sm-5">
+      <label>tipo:</label>
+       <input type="text" name="tipo" id="tipo" class="form-control" />
+     <br />
+            </div>
+
+
+
+
+
             
         </div>
 
@@ -184,42 +196,51 @@ observacion
                   <input type="text" name="id_planta2" id="id_planta2" class="form-control" readonly />
                    <br/>
             </div>
-                      <div class="col-sm-3">
-                  <label>observacion: </label>
-                  <textarea type="text" name="observacion2" id="observacion2" class="form-control" readonly></textarea>
-                            
-          </div> 
+
                 <div class="col-sm-5">
-      <label>especie de la planta:</label>
-       <input type="text" name="id_especieP2" id="id_especieP2" class="form-control" readonly/>
+      <label>nombre_planta:</label>
+       <input type="text" name="nombre_planta2" id="nombre_planta2" class="form-control" readonly/>
      <br />
             </div>
 
 
         </div>
 
+      <div class="col-sm-5">
+      <label>cod_semilla:</label>
+       <input type="text" name="cod_semilla2" id="cod_semilla2" class="form-control" readonly/>
+     <br />
+            </div>
 
-          <div class="row">
             <div class="col-sm-5">
                   <label>fecha_registro:</label>
                   <input type="date" name="fecha_registro2" id="fecha_registro2" class="form-control" readonly/>
                   <br />
             </div>
-
-
-      <div class="col-sm-5">
-      <label>nombre_planta:</label>
-       <input type="text" name="nombre_planta2" id="nombre_planta2" class="form-control"readonly />
-     <br />
+            <div class="col-sm-5">
+                  <label>id_especieP:</label>
+                  <input type="text" name="id_especieP2" id="id_especieP2" class="form-control" readonly/>
+                  <br />
             </div>
+
+
+
+                      <div class="col-sm-3">
+                  <label>observacion: </label>
+                  <textarea type="text" name="observacion2" id="observacion2" class="form-control" readonly></textarea>
+                            
+          </div> 
+
+          <div class="row">
+
    <div class="col-sm-5">                  
           <label>estado: </label>
           <input type="text" name="estado2" id="estado2" class="form-control" readonly/>
             <br />
 </div>
       <div class="col-sm-5">
-      <label>nombre semilla:</label>
-       <input type="text" name="cod_semilla2" id="cod_semilla2" class="form-control" readonly/>
+      <label> tipo:</label>
+       <input type="text" name="tipo2" id="tipo2" class="form-control" readonly/>
      <br />
             </div>
             
@@ -295,17 +316,13 @@ $('.modal-title').text("Ver plantas");
 
         $('#userModal2').modal('show');
         $('#id_planta2').val(data.id_planta);
-        $('#observacion2').val(data.observacion);
-        $('#fecha_registro2').val(data.fecha_registro);
         $('#nombre_planta2').val(data.nombre_planta);
-        $('#estado2').val(data.estado);
-
         $('#cod_semilla2').val(data.nombre_semilla);
-        $('#id_especieP2').val(data.nombreP);
-
-
-        
-
+        $('#fecha_registro2').val(data.fecha_registro);
+        $('#id_especieP2').val(data.nombreS);
+        $('#observacion2').val(data.observacion);
+        $('#estado2').val(data.estado);
+        $('#tipo2').val(data.tipo);
 
         $('.modal-title').text("Ver Plantas");
         $('#id_planta2').val(id_planta);
@@ -319,14 +336,16 @@ $('.modal-title').text("Ver plantas");
   $(document).on('submit', '#user_form', function(event){
     event.preventDefault();
 
-    var cod_semilla = $('#cod_semilla').val();
     var nombre_planta = $('#nombre_planta').val();
+    var cod_semilla = $('#cod_semilla').val();
     var fecha_registro = $('#fecha_registro').val();
     var id_especieP = $('#id_especieP').val();
+    var observacion = $('#observacion').val();
     var estado = $('#estado').val();
+    var tipo = $('#tipo').val();
 
    
-    if(cod_semilla != '' && fecha_registro != '')
+    if(nombre_planta != '' && fecha_registro != '')
     {
   
       $.ajax({
@@ -367,12 +386,13 @@ $('.modal-title').text("Ver plantas");
       {
 
         $('#userModal').modal('show');
+        $('#nombre_planta').val(data.nombre_planta);
         $('#cod_semilla').val(data.cod_semilla);
         $('#fecha_registro').val(data.fecha_registro);
+        $('#id_especieP').val(data.id_especieP);
         $('#observacion').val(data.observacion);
         $('#estado').val(data.estado);
-        $('#nombre_planta').val(data.nombre_planta);
-        $('#id_especieP').val(data.nombreP);
+        $('#tipo').val(data.tipo);
       
 
 

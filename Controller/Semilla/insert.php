@@ -11,16 +11,18 @@ if(isset($_POST["operation"]))
 $modelo = new Conexion();
 $connection = $modelo->conectarbd();
 		$statement = $connection->prepare("
-			INSERT INTO semillas (id_especieS, observacion, fecha_registro, cod_proveedor, estado) 
-			VALUES (:id_especieS, :observacion, :fecha_registro, :cod_proveedor, :estado)
+			INSERT INTO semillas (nombre_semilla,id_especieS, observacionS, fecha_registroS, cod_proveedor, estado, tipoS) 
+			VALUES (:nombre_semilla, :id_especieS, :observacionS, :fecha_registroS, :cod_proveedor, :estado, :tipoS)
 		");
 		$result = $statement->execute(
 			array(
+				':nombre_semilla'	=>	$_POST["nombre_semilla"],
 				':id_especieS'	=>	$_POST["id_especieS"],
-				':observacion'	=>	$_POST["observacion"],
-				':fecha_registro'	=>	$_POST["fecha_registro"],
+				':observacionS'	=>	$_POST["observacionS"],
+				':fecha_registroS'	=>	$_POST["fecha_registroS"],
 				':cod_proveedor'	=>	$_POST["cod_proveedor"],
-				':estado'	=>	$_POST["estado"]
+				':estado'	=>	$_POST["estado"],
+				':tipoS'	=>	$_POST["tipoS"]
 	
 			)
 		);
@@ -42,14 +44,15 @@ $connection = $modelo->conectarbd();
 $connection = $modelo->conectarbd();
 		$statement = $connection->prepare(
 			"UPDATE semillas 
-			SET observacion = :observacion, fecha_registro = :fecha_registro  
+			SET nombre_semilla = :nombre_semilla, observacionS = :observacionS, fecha_registroS = :fecha_registroS  
 			WHERE cod_semilla = :cod_semilla
 			"
 		);
 		$result = $statement->execute(
 			array(
-				':observacion'	=>	$_POST["observacion"],
-				':fecha_registro'	=>	$_POST["fecha_registro"],
+				':nombre_semilla'	=>	$_POST["nombre_semilla"],
+				':observacionS'	=>	$_POST["observacionS"],
+				':fecha_registroS'	=>	$_POST["fecha_registroS"],
 				':cod_semilla'	=>	$_POST["cod_semilla"]
 			)
 		);

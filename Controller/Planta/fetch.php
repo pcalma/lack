@@ -10,7 +10,7 @@ $connection = $modelo->conectarbd();
 
 $query = '';
 $output = array();
-$query .= "SELECT * FROM especies INNER JOIN semillas USING(id_especieS) INNER JOIN plantas USING(cod_semilla) INNER JOIN especiep USING(id_especieP)";
+$query .= "SELECT * FROM especies JOIN semillas USING(id_especieS) JOIN plantas USING(cod_semilla)";
 
 
 
@@ -18,7 +18,7 @@ $query .= "SELECT * FROM especies INNER JOIN semillas USING(id_especieS) INNER J
 if(isset($_POST["search"]["value"]))
 {
 	$query .= 'WHERE nombre_planta LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR nombreP LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'OR id_planta LIKE "%'.$_POST["search"]["value"].'%" ';
 }
 if(isset($_POST["order"]))
 {
@@ -48,7 +48,7 @@ foreach($result as $row)
 	$sub_array[] = $row["id_planta"];
 	$sub_array[] = $row["nombre_planta"];
 	$sub_array[] = $row["fecha_registro"];
-	$sub_array[] = $row["nombreP"];
+	$sub_array[] = $row["observacion"];
 
 	
 	$sub_array[] = '<button id="add_button2" data-toggle="modal" data-target="#userModal2" type="button" name="ver" id_planta="'.$row["id_planta"].'" class="btn btn-info btn-xs ver">Ver</button>';

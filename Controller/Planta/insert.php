@@ -11,8 +11,8 @@ if(isset($_POST["operation"]))
 $modelo = new Conexion();
 $connection = $modelo->conectarbd();
 		$statement = $connection->prepare("
-			INSERT INTO plantas (cod_semilla, fecha_registro, id_especieP, estado,nombre_planta, observacion) 
-			VALUES (:cod_semilla, :fecha_registro, :id_especieP, :estado, :nombre_planta, :observacion)");
+			INSERT INTO plantas (cod_semilla, fecha_registro, id_especieP, estado,nombre_planta, observacion,tipo ) 
+			VALUES (:cod_semilla, :fecha_registro, :id_especieP, :estado, :nombre_planta, :observacion, :tipo)");
 		$result = $statement->execute(
 			array(
 			
@@ -21,7 +21,8 @@ $connection = $modelo->conectarbd();
 				':id_especieP'	=>	$_POST["id_especieP"],
 				':nombre_planta'	=>	$_POST["nombre_planta"],
 				':observacion'	=>	$_POST["observacion"],
-				':estado'	=>	$_POST["estado"]
+				':estado'	=>	$_POST["estado"],
+				':tipo'	=>	$_POST["tipo"]
 
 			)
 		);
@@ -40,7 +41,7 @@ $connection = $modelo->conectarbd();
 $connection = $modelo->conectarbd();
 		$statement = $connection->prepare(
 			"UPDATE plantas 
-			SET cod_semilla = :cod_semilla, fecha_registro = :fecha_registro, estado  = :estado, id_especieP = :id_especieP, observacion = :observacion 
+			SET cod_semilla = :cod_semilla, fecha_registro = :fecha_registro, estado  = :estado, id_especieP = :id_especieP, observacion = :observacion, nombre_planta = :nombre_planta, tipo = :tipo 
 			WHERE id_planta = :id_planta
 			"
 		);
@@ -48,11 +49,11 @@ $connection = $modelo->conectarbd();
 			array(
 				':cod_semilla'	=>	$_POST["cod_semilla"],
 				':fecha_registro'	=>	$_POST["fecha_registro"],
-				':estado'	=>	$_POST["estado"],
 				':id_especieP'	=>	$_POST["id_especieP"],
+				':nombre_planta'	=>	$_POST["nombre_planta"],
 				':observacion'	=>	$_POST["observacion"],
-	
-				':id_planta'	=>	$_POST["id_planta"]
+				':estado'	=>	$_POST["estado"],
+				':tipo'	=>	$_POST["tipo"]
 			)
 		);
 		if(!empty($result))

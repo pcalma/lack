@@ -3,7 +3,8 @@
 <?php 
 
 
-class CProveedor{
+class CProveedor
+{
 
 function get_total_all_records()
 {

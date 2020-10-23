@@ -18,7 +18,7 @@ if(isset($_POST["cod_producto"]))
 	foreach($result as $row)
 	{
 		$output["cod_producto"] = $row["cod_producto"];
-		$output["cod_proveedor"] = $row["cod_proveedor"];
+		$output["nombre_proveedor"] = $row["nombre_proveedor"];
 		$output["descripcion"] = $row["descripcion"];
 		$output["nombre_producto"] = $row["nombre_producto"];
 		$output["precio"] = $row["precio"];

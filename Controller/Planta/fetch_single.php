@@ -9,7 +9,7 @@ if(isset($_POST["id_planta"]))
     $connection = $modelo->conectarbd();
 	$output = array();
 	$statement = $connection->prepare(
-		"SELECT * FROM semillas INNER JOIN plantas USING(cod_semilla) INNER JOIN especiep USING(id_especieP)
+		"SELECT * FROM semillas INNER JOIN plantas USING(cod_semilla) INNER JOIN especies USING(id_especieS)
 		WHERE id_planta = '".$_POST["id_planta"]."' 
 		LIMIT 1"
 	);
@@ -26,14 +26,14 @@ if(isset($_POST["id_planta"]))
 	foreach($result as $row)
 	{
 
-		$output["id_planta"] = $row["id_planta"];
-		$output["nombre_semilla"] = $row["nombre_semilla"];
-		$output["cod_semilla"] = $row["cod_semilla"];
-		$output["fecha_registro"] = $row["fecha_registro"];
-		$output["nombreP"] = $row["nombreP"];
-		$output["estado"] = $row["estado"];
+  
 		$output["nombre_planta"] = $row["nombre_planta"];
+		$output["nombre_semilla"] = $row["nombre_semilla"];
+		$output["fecha_registro"] = $row["fecha_registro"];
+		$output["nombreS"] = $row["nombreS"];
 		$output["observacion"] = $row["observacion"];
+		$output["estado"] = $row["estado"];
+		$output["tipo"] = $row["tipo"];
 
 
 	}

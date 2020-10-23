@@ -54,7 +54,7 @@ estado
 --------->
           
               <th width="5%">cod_semilla</th>
-              <th width="25%">nombre</th>
+              <th width="25%">nombre_semilla</th>
               <th width="20%">observacion</th>
               <th width="10%">fecha_registro</th>
               
@@ -92,18 +92,18 @@ estado
     
   </div>
   <br>
+
    <div class="form-group">
 
-    <label for="">nombre</label>
-    <input class="form-control mx-sm-3" id="nombre2" name="nombre2" readonly>
+    <label for="">nombre_semilla</label>
+    <input  class="form-control mx-sm-3" name="nombre_semilla2" id="nombre_semilla2" readonly        > 
     
   </div>
   <br>
-   <div class="form-group">
+     <div class="form-group">
 
-    <label for="observacion">observacion</label>
-    <textarea type="text" id="observacion2" class="form-control mx-sm-3" name="observacion2" readonly> </textarea>
-    
+    <label for="">id_especieS</label>
+    <input type="text" id="id_especieS2" class="form-control mx-sm-3" name="id_especieS2" readonly>
   </div>
   <br>
    <div class="form-group">
@@ -113,6 +113,16 @@ estado
     
   </div>
     <br>
+
+   <div class="form-group">
+
+    <label for="">observacion</label>
+     <textarea type="textarea" id="observacion2" class="form-control mx-sm-3" name="observacion2" readonly> </textarea>
+    
+  </div>
+  <br>
+
+
    <div class="form-group">
 
     <label for="">nombre_proveedor</label>
@@ -124,6 +134,14 @@ estado
 
     <label for="estado">estado</label>
     <input type="text" id="estado2" class="form-control mx-sm-3"  name="estado2" readonly>
+    
+  </div>
+
+        <br>
+   <div class="form-group">
+
+    <label for="">tipoS</label>
+    <input type="text" id="tipoS2" class="form-control mx-sm-3"  name="tipoS2" readonly>
     
   </div>
 
@@ -176,43 +194,48 @@ estado
 -------->
    <div class="form-group">
 
-    <label for="">nombre</label>
-      <select class="form-control" required name="nombre" id="nombre">
-      <option value="">--Selecciona--</option>
-      <option value="1">blueberry</option>
-      <option value="2">11 rosas</option>
-      <option value="3">otro</option>
-    
-    </select>
-
-
-
-<!---
-    <input id="nombre" class="form-control mx-sm-3" name="nombre" >
-   -->
+    <label for="">nombre_semilla</label>
+        <textarea type="textarea" id="nombre_semilla" class="form-control mx-sm-3" name="nombre_semilla" > </textarea>
+ 
   </div>
 
   <br>
    <div class="form-group">
 
-    <label for="">observacion</label>
-        <textarea type="textarea" id="observacion" class="form-control mx-sm-3" name="observacion" > </textarea>
- 
+    <label for="">id_especieS</label>
+      <select class="form-control" required name="id_especieS" id="id_especieS">
+      <option value="id_especieS"></option>
+      <option value="1">indica</option>
+      <option value="2">sativa</option>
+      <option value="3">otro</option>
+    
+    </select>
+
+    
   </div>
   <br>
    <div class="form-group">
 
     <label for="">fecha_registro</label>
-    <input id="fecha_registro" class="form-control mx-sm-3" name="fecha_registro" type="date" >
+    <input id="fecha_registroS" class="form-control mx-sm-3" name="fecha_registroS" type="date" >
    
     
   </div>
   <br>
+
+     <div class="form-group">
+
+    <label for="">observacion</label>
+        <textarea type="textarea" id="observacionS" class="form-control mx-sm-3" name="observacionS" > </textarea>
+ 
+  </div>
+
+  <br>
    <div class="form-group">
 
-    <label for="">nombre_proveedor</label>
-      <select class="form-control" required name="nombre_proveedor" id="nombre_proveedor">
-      <option value="nombre_proveedor"></option>
+    <label for="">cod_proveedor</label>
+      <select class="form-control" required name="cod_proveedor" id="cod_proveedor">
+      <option value="cod_proveedor"></option>
       <option value="1">semi</option>
       <option value="2">agro</option>
       <option value="3">otro</option>
@@ -226,6 +249,13 @@ estado
 
     <label for="estado">estado</label>
     <input type="text" id="estado" class="form-control mx-sm-3"  name="estado" >
+    
+  </div>
+      <br>
+   <div class="form-group">
+
+    <label for="tipoS">tipoS</label>
+    <input type="text" id="tipoS" class="form-control mx-sm-3"  name="tipoS" >
     
   </div>
 
@@ -306,11 +336,13 @@ $('.modal-title').text("Ver Semillas");
 
         $('#Modal2').modal('show');
         $('#cod_semilla2').val(data.cod_semilla);
-        $('#nombre2').val(data.nombre);
-        $('#observacion2').val(data.observacion);
-        $('#fecha_registro2').val(data.fecha_registro);
+        $('#nombre_semilla2').val(data.nombre_semilla);
+        $('#id_especieS2').val(data.nombreS);
+        $('#fecha_registro2').val(data.fecha_registroS);
+        $('#observacion2').val(data.observacionS);
         $('#nombre_proveedor2').val(data.nombre_proveedor);
         $('#estado2').val(data.estado);
+        $('#tipoS2').val(data.tipoS);
 
         $('.modal-title').text("Ver semilla");
         $('#cod_semilla2').val(cod_semilla);
@@ -324,13 +356,15 @@ $('.modal-title').text("Ver Semillas");
 
   $(document).on('submit', '#user_form', function(event){
     event.preventDefault();
-    var nombre = $('#nombre').val();
-    var observacion = $('#observacion').val();
-    var fecha_registro = $('#fecha_registro').val();
-    var nombre_proveedor = $('#nombre_proveedor').val();
+    var nombre_semilla = $('#nombre_semilla').val();
+    var id_especieS = $('#id_especieS').val();
+    var fecha_registroS = $('#fecha_registroS').val();
+    var observacionS = $('#observacionS').val();
+    var cod_proveedor = $('#cod_proveedor').val();
     var estado = $('#estado').val();
+    var tipoS = $('#tipoS').val();
    
-    if(observacion != '' && fecha_registro != ''&& nombre_proveedor != ''&& estado != '')
+    if(observacionS != '' && fecha_registroS != ''&& estado != '')
     {
   
       $.ajax({
@@ -373,11 +407,13 @@ $('.modal-title').text("Ver Semillas");
       {
 
         $('#userModal').modal('show');
-        $('#observacion').val(data.observacion);
-        $('#fecha_registro').val(data.fecha_registro);
-        $('#nombre').val(data.nombre);
+        $('#nombre_semilla').val(data.nombre_semilla);
+        $('#id_especieS').val(data.id_especieS);
+        $('#fecha_registroS').val(data.fecha_registroS);
+        $('#observacionS').val(data.observacionS);
         $('#nombre_proveedor').val(data.nombre_proveedor);
         $('#estado').val(data.estado);
+        $('#tipoS').val(data.tipoS);
 
 
         $('.modal-title').text("Edit semilla");

@@ -384,8 +384,8 @@ require_once('../../Modelo/class.cliente.php');
 
 
 $(document).ready(function(){
+  
 $('#add_button').click(function(){
-
 $('#user_form')[0].reset();
 $('.modal-title').text("Agregar Usuarios");
 $('#action').val("Add");
