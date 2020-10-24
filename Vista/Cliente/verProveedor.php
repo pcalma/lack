@@ -133,6 +133,74 @@ require_once('../../Modelo/class.proveedor.php');
 
 
 <!-------------------------------------------------------------->
+
+<!-------------------------------------------------------------->
+<div id="userModal2" class="modal fade bd-example-modal-lg">
+  <div class="modal-dialog modal-lg">
+    <form method="post" id="user_form2" enctype="multipart/form-data" class="form-inline" >
+      <!-----action="../Controlador/Cliente/cargar.php"------->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Proveedor</h4>
+          <button type="button" class="close" data-dismiss="modal">X</button>
+          
+        </div>
+        <div class="modal-body">
+     <!------
+   <div class="form-group">
+
+    <label for="">onservacion</label>
+        <textarea type="textarea" id="direccion" class="form-control mx-sm-3" name="nombre_semilla" > </textarea>
+ 
+  </div>
+
+  <br>
+------>
+ 
+
+   <div class="form-group">
+
+    <label for="">nombre_proveedor</label>
+    <input id="nomP2" class="form-control mx-sm-3" name="nomP2" type="text" readonly >
+   
+    
+  </div>
+  <br>
+
+
+   <div class="form-group">
+
+    <label for="">tel_proveedor</label>
+    <input id="tel_proveedor2" class="form-control mx-sm-3" name="tel_proveedor2" type="text" readonly>
+   
+    
+  </div>
+    <br> 
+
+     <div class="form-group">
+
+    <label for="">direccion</label>
+    <input id="direccion2" class="form-control mx-sm-3" name="direccion2" type="text" readonly>
+       
+  </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+<!-------------------------------------------------------------->
 <script type="text/javascript" language="javascript" >
 
 
@@ -149,6 +217,12 @@ $('#operation').val("Add");
     });
 
 
+$('#add_button2').click(function(){
+$('#user_form2')[0].reset();
+$('.modal-title').text("Ver Proveedor");
+
+});
+
 
   var dataTable = $('#myTable').DataTable({
     "processing":true,
@@ -164,6 +238,31 @@ $('#operation').val("Add");
     "order": [[ 1, 'asc' ]] 
 
 });
+
+
+    $(document).on('click', '.ver', function(){
+    var cod_proveedor = $(this).attr("cod_proveedor");
+    $.ajax({
+      url:"../../Controller/Proveedor/fetch_dato.php",
+      method:"POST",
+      data:{cod_proveedor:cod_proveedor},
+      dataType:"json",
+      success:function(data)
+      {
+
+        $('#userModal2').modal('show');
+        $('#cod_proveedor2').val(data.cod_proveedor);
+        $('#nomP2').val(data.nomP);
+        $('#tel_proveedor2').val(data.tel_proveedor);
+        $('#direccion2').val(data.direccion);
+     
+        $('.modal-title').text("Ver proveedor");
+        $('#cod_proveedor2').val(cod_proveedor);
+
+  
+      }
+    })
+  });
 
    $(document).on('submit', '#user_form', function(event){
     event.preventDefault();

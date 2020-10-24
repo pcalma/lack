@@ -11,7 +11,7 @@ $query .= "SELECT * FROM detalle ";
 
 if(isset($_POST["search"]["value"]))
 {
-	$query .= 'WHERE nombre LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'WHERE nombreD LIKE "%'.$_POST["search"]["value"].'%" ';
 	$query .= 'OR cod_detalle LIKE "%'.$_POST["search"]["value"].'%" ';
 }
 if(isset($_POST["order"]))
@@ -38,12 +38,12 @@ foreach($result as $row)
 		$sub_array = array();
 
 	$sub_array[] = $row["cod_detalle"];
-	$sub_array[] = $row["nombre"];
+	$sub_array[] = $row["nombreD"];
 	$sub_array[] = $row["id_categoria"];
 	$sub_array[] = $row["img_deta"];
 
 	
-	$sub_array[] = '<button type="button" name="ver" cod_detalle="'.$row["cod_detalle"].'" class="btn btn-info btn-xs ver">Ver</button>';
+	$sub_array[] = '<button id="add_button2" data-toggle="modal" data-target="#userModal2" type="button" name="ver" cod_detalle="'.$row["cod_detalle"].'" class="btn btn-info btn-xs ver">Ver</button>';
 	$sub_array[] = '<button type="button" name="update" cod_detalle="'.$row["cod_detalle"].'" class="btn btn-warning btn-xs update">Update</button>';
 	$sub_array[] = '<button type="button" name="delete" cod_detalle="'.$row["cod_detalle"].'" class="btn btn-danger btn-xs delete">Delete</button>';
 	$data[] = $sub_array;
