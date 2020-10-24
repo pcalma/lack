@@ -28,7 +28,7 @@ $connection = $modelo->conectarbd();
 		);
 		if(!empty($result))
 		{
-			echo 'datos ingresados corectamente';
+			echo 'datos ingresados correctamente';
 		}
 	}
 

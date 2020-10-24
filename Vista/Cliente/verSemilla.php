@@ -73,94 +73,7 @@ estado
 
              <?php include 'Vista_p/partials/footerTable.php';?>
 
-<!-------------------------------------->
-<div id="Modal2" class="modal fade bd-example-modal-lg">
-  <div class="modal-dialog modal-lg">
-    <form method="post" id="userform2" enctype="multipart/form-data" class="form-inline">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Semilla</h4>
-          <button type="button" class="close" data-dismiss="modal">X</button>
-          
-        </div>
-        <div class="modal-body">
 
- <div class="form-group">
-
-    <label for="">cod_semilla</label>
-    <input  class="form-control mx-sm-3" name="cod_semilla2" id="cod_semilla2" readonly        > 
-    
-  </div>
-  <br>
-
-   <div class="form-group">
-
-    <label for="">nombre_semilla</label>
-    <input  class="form-control mx-sm-3" name="nombre_semilla2" id="nombre_semilla2" readonly        > 
-    
-  </div>
-  <br>
-     <div class="form-group">
-
-    <label for="">id_especieS</label>
-    <input type="text" id="id_especieS2" class="form-control mx-sm-3" name="id_especieS2" readonly>
-  </div>
-  <br>
-   <div class="form-group">
-
-    <label for="fecha_registro">fecha_registro</label>
-    <input type="date" id="fecha_registro2" class="form-control mx-sm-3"  name="fecha_registro2" readonly>
-    
-  </div>
-    <br>
-
-   <div class="form-group">
-
-    <label for="">observacion</label>
-     <textarea type="textarea" id="observacion2" class="form-control mx-sm-3" name="observacion2" readonly> </textarea>
-    
-  </div>
-  <br>
-
-
-   <div class="form-group">
-
-    <label for="">nombre_proveedor</label>
-    <input type="text" id="nombre_proveedor2" class="form-control mx-sm-3"  name="nombre_proveedor2" readonly>
-    
-  </div>
-      <br>
-   <div class="form-group">
-
-    <label for="estado">estado</label>
-    <input type="text" id="estado2" class="form-control mx-sm-3"  name="estado2" readonly>
-    
-  </div>
-
-        <br>
-   <div class="form-group">
-
-    <label for="">tipoS</label>
-    <input type="text" id="tipoS2" class="form-control mx-sm-3"  name="tipoS2" readonly>
-    
-  </div>
-
-
-        </div>
-
-        <div class="modal-footer">
-    
-      
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-
-
-      </div>
-
-    </form>
-
-  </div>
-</div>
 
 <!------------------------------------------------------------------>
 
@@ -195,7 +108,7 @@ estado
    <div class="form-group">
 
     <label for="">nombre_semilla</label>
-        <textarea type="textarea" id="nombre_semilla" class="form-control mx-sm-3" name="nombre_semilla" > </textarea>
+        <textarea type="text" id="nombre_semilla" class="form-control mx-sm-3" name="nombre_semilla" > </textarea>
  
   </div>
 
@@ -236,7 +149,7 @@ estado
     <label for="">cod_proveedor</label>
       <select class="form-control" required name="cod_proveedor" id="cod_proveedor">
       <option value="cod_proveedor"></option>
-      <option value="1">semi</option>
+      <option value="0">semi</option>
       <option value="2">agro</option>
       <option value="3">otro</option>
     
@@ -278,7 +191,108 @@ estado
 </div>
 
 <!-------------------------------------------------------------->
+<div id="userModal2" class="modal fade bd-example-modal-lg">
+  <div class="modal-dialog modal-lg">
+    <form method="post" id="user_form2" enctype="multipart/form-data" class="form-inline" >
+      <!-----action="../Controlador/Cliente/cargar.php"------->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Semilla</h4>
+          <button type="button" class="close" data-dismiss="modal">X</button>
+          
+        </div>
+        <div class="modal-body">
+<!----
+    <?php 
+   // dropdownSemillas();
+   // echo "<br>";
+     ?>
 
+        <div class="col-sm-5">        
+          <label>Rol: </label>
+    <select name="nombre" required id="nombre" class="form-control">
+      <option value=""> --Selecciona-- </option>
+      <option value="nombre"></option>
+
+    
+    </select>
+                                </div>
+<div id="selectLista" ></div>
+-------->
+   <div class="form-group">
+
+    <label for="">nombre_semilla</label>
+        <textarea type="text" id="nombre_semilla2" class="form-control mx-sm-3" name="nombre_semilla2" readonly> </textarea>
+ 
+  </div>
+
+  <br>
+
+   <div class="form-group">
+
+    <label for="">id_especieS</label>
+        <input type="text" id="id_especieS2" class="form-control mx-sm-3" name="id_especieS2" readonly>
+ 
+  </div>
+  <br>
+   <div class="form-group">
+
+    <label for="">fecha_registro</label>
+    <input id="fecha_registroS2" class="form-control mx-sm-3" name="fecha_registroS2" type="date" readonly>
+   
+    
+  </div>
+  <br>
+
+     <div class="form-group">
+
+    <label for="">observacion</label>
+        <textarea type="textarea" id="observacionS2" class="form-control mx-sm-3" name="observacionS2" readonly> </textarea>
+ 
+  </div>
+
+
+
+  <br>
+
+     <div class="form-group">
+
+    <label for="">nomP</label>
+    <input id="nomP2" class="form-control mx-sm-3" name="nomP2" type="text" readonly>
+   
+    
+  </div>
+  <br>
+ 
+   <div class="form-group">
+
+    <label for="estado">estado</label>
+    <input type="text" id="estado2" class="form-control mx-sm-3"  name="estado2" readonly>
+    
+  </div>
+      <br>
+   <div class="form-group">
+
+    <label for="tipoS">tipoS</label>
+    <input type="text" id="tipoS2" class="form-control mx-sm-3"  name="tipoS2" readonly>
+    
+  </div>
+
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
 <!-------------------------------------------------------------->
 
 <script type="text/javascript" language="javascript" >
@@ -296,6 +310,11 @@ $('#operation').val("Add");
 
     });
 
+$('#add_button2').click(function(){
+$('#user_form2')[0].reset();
+$('.modal-title').text("ver Semillas");
+
+    });
 
 
 $('#add_button2').click(function(){
@@ -334,13 +353,13 @@ $('.modal-title').text("Ver Semillas");
       success:function(data)
       {
 
-        $('#Modal2').modal('show');
+        $('#userModal2').modal('show');
         $('#cod_semilla2').val(data.cod_semilla);
         $('#nombre_semilla2').val(data.nombre_semilla);
         $('#id_especieS2').val(data.nombreS);
         $('#fecha_registro2').val(data.fecha_registroS);
-        $('#observacion2').val(data.observacionS);
-        $('#nombre_proveedor2').val(data.nombre_proveedor);
+        $('#observacionS2').val(data.observacionS);
+        $('#nomP2').val(data.nomP);
         $('#estado2').val(data.estado);
         $('#tipoS2').val(data.tipoS);
 
@@ -364,7 +383,7 @@ $('.modal-title').text("Ver Semillas");
     var estado = $('#estado').val();
     var tipoS = $('#tipoS').val();
    
-    if(observacionS != '' && fecha_registroS != ''&& estado != '')
+    if(observacionS != '' && nombre_semilla != '')
     {
   
       $.ajax({
@@ -411,7 +430,7 @@ $('.modal-title').text("Ver Semillas");
         $('#id_especieS').val(data.id_especieS);
         $('#fecha_registroS').val(data.fecha_registroS);
         $('#observacionS').val(data.observacionS);
-        $('#nombre_proveedor').val(data.nombre_proveedor);
+        $('#nomP').val(data.nomP);
         $('#estado').val(data.estado);
         $('#tipoS').val(data.tipoS);
 

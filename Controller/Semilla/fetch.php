@@ -13,8 +13,8 @@ USING (id_especieS) JOIN proveedor USING (cod_proveedor)";
 
 if(isset($_POST["search"]["value"]))
 {
-	$query .= 'WHERE cod_semilla LIKE "%'.$_POST["search"]["value"].'%" ';
-	$query .= 'OR id_especieS LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'WHERE nombre_semilla LIKE "%'.$_POST["search"]["value"].'%" ';
+	$query .= 'OR observacionS LIKE "%'.$_POST["search"]["value"].'%" ';
 }
 if(isset($_POST["order"]))
 {

@@ -31,7 +31,7 @@ USING (id_especieS) JOIN proveedor USING (cod_proveedor)
 		$output["id_especieS"] = $row["id_especieS"];
 		$output["fecha_registroS"] = $row["fecha_registroS"];
 		$output["observacionS"] = $row["observacionS"];
-		$output["nombre_proveedor"] = $row["nombre_proveedor"];
+		$output["nomP"] = $row["nomP"];
 		$output["estado"] = $row["estado"];
 		$output["tipoS"] = $row["tipoS"];
 		
