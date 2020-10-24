@@ -22,7 +22,7 @@ if(isset($_POST["cod_proveedor"]))
 
 		
 		$output["direccion"] = $row["direccion"];
-		$output["nombre_proveedor"] = $row["nombre_proveedor"];
+		$output["nomP"] = $row["nomP"];
 		$output["tel_proveedor"] = $row["tel_proveedor"];
 	}
 	echo json_encode($output);

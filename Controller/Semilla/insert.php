@@ -58,7 +58,7 @@ $connection = $modelo->conectarbd();
 		);
 		if(!empty($result))
 		{
-			echo 'datos editados correctamenete';
+			echo 'datos editados correctamente';
 		}
 	}
 
