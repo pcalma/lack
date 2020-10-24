@@ -45,7 +45,7 @@ foreach($result as $row)
 	$sub_array[] = $row["fecha_registroS"];
 
 	
-	$sub_array[] = '<button id="add_button2" data-toggle="modal" data-target="#Modal2" type="button" name="ver" cod_semilla="'.$row["cod_semilla"].'" class="btn btn-info   btn-xs ver">Ver</button>';
+	$sub_array[] = '<button id="add_button2" data-toggle="modal" data-target="#userModal2" type="button" name="ver" cod_semilla="'.$row["cod_semilla"].'" class="btn btn-info   btn-xs ver">Ver</button>';
 
 	$sub_array[] = '<button type="button" name="update" cod_semilla="'.$row["cod_semilla"].'" class="btn btn-warning btn-xs update">Update</button>';
 

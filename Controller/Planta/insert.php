@@ -28,7 +28,7 @@ $connection = $modelo->conectarbd();
 		);
 		if(!empty($result))
 		{
-			echo 'datos ingresados corectamente';
+			echo 'datos ingresados correctamente';
 		}
 	}
 
@@ -42,23 +42,25 @@ $connection = $modelo->conectarbd();
 		$statement = $connection->prepare(
 			"UPDATE plantas 
 			SET cod_semilla = :cod_semilla, fecha_registro = :fecha_registro, estado  = :estado, id_especieP = :id_especieP, observacion = :observacion, nombre_planta = :nombre_planta, tipo = :tipo 
-			WHERE id_planta = :id_planta
-			"
+			WHERE id_planta = :id_planta"
 		);
 		$result = $statement->execute(
 			array(
-				':cod_semilla'	=>	$_POST["cod_semilla"],
+
+
+		':cod_semilla'	=>	$_POST["cod_semilla"],
 				':fecha_registro'	=>	$_POST["fecha_registro"],
 				':id_especieP'	=>	$_POST["id_especieP"],
 				':nombre_planta'	=>	$_POST["nombre_planta"],
 				':observacion'	=>	$_POST["observacion"],
 				':estado'	=>	$_POST["estado"],
-				':tipo'	=>	$_POST["tipo"]
+				':tipo'	=>	$_POST["tipo"],
+				':id_planta'	=>	$_POST["id_planta"]
 			)
 		);
 		if(!empty($result))
 		{
-			echo 'datos editados correctamenete';
+			echo 'datos editados correctamente';
 		}
 	}
 

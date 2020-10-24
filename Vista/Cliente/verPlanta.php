@@ -96,10 +96,9 @@ observacion
             <label>cod_semilla: </label>
         <select class="form-control"  name="cod_semilla" id="cod_semilla">
       <option value=""></option>
-      <option value="2">chcolopez</option>
-      <option value="3">Bluberry</option>
-      <option value="9">Mango kush</option>
-      <option value="10">Chaman</option>
+      <option value="12">chcolopez</option>
+      <option value="20">Bluberry</option>
+
     
     </select>
                             <br />
@@ -133,7 +132,7 @@ observacion
             <label> estado: </label>
         <select class="form-control"  name="estado" id="estado">
       <option value=""></option>
-      <option value="1"><?php  $POST[$estado]  ?></option>
+      <option value="1">Inactivo</option>
       <option value="2">Activo</option>
     
     </select>
@@ -385,11 +384,13 @@ $('.modal-title').text("Ver plantas");
       success:function(data)
       {
 
+
         $('#userModal').modal('show');
+        $('#id_planta').val(data.id_planta);
         $('#nombre_planta').val(data.nombre_planta);
-        $('#cod_semilla').val(data.cod_semilla);
+        $('#cod_semilla').val(data.nombre_semilla);
         $('#fecha_registro').val(data.fecha_registro);
-        $('#id_especieP').val(data.id_especieP);
+        $('#id_especieP').val(data.nombreS);
         $('#observacion').val(data.observacion);
         $('#estado').val(data.estado);
         $('#tipo').val(data.tipo);
