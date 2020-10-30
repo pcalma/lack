@@ -106,7 +106,7 @@ precio
    <div class="form-group">
 
     <label for="img_deta">img_deta</label>
-    <input type="text" id="img_deta" class="form-control mx-sm-3"  name="img_deta" >
+    <input type="img" id="img_deta" class="form-control mx-sm-3"  name="img_deta" >
     
   </div>
       <br>
